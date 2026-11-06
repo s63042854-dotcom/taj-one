@@ -7,12 +7,12 @@
 <meta name="description" content="Iraqi petroleum prices per litre and per tonne, central-bank and market dollar rates, live gold, and a margin calculator built for fuel traders — in English, Arabic, German and Turkish.">
 <meta name="theme-color" content="#08090B">
 <meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://tajone-iq.netlify.app/">
+<link rel="canonical" href="https://s63042854-dotcom.github.io/taj-one/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TAJ ONE">
 <meta property="og:title" content="TAJ ONE — Iraq Energy Intelligence">
 <meta property="og:description" content="Fuel prices per litre and per tonne, central-bank and market dollar rates, and a trader margin calculator.">
-<meta property="og:url" content="https://tajone-iq.netlify.app/">
+<meta property="og:url" content="https://s63042854-dotcom.github.io/taj-one/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_IQ">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,9 +26,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://tajone-iq.netlify.app/#org","name":"TAJ ONE for General Trading and Energy","url":"https://tajone-iq.netlify.app/","address":{"@type":"PostalAddress","addressLocality":"Erbil","addressCountry":"IQ"},"knowsLanguage":["en","ar","de","tr"],"description":"Iraqi petroleum derivatives pricing, dollar and gold rates and trade margin tools."},
-{"@type":"WebSite","@id":"https://tajone-iq.netlify.app/#site","url":"https://tajone-iq.netlify.app/","name":"TAJ ONE — Energy Intelligence","publisher":{"@id":"https://tajone-iq.netlify.app/#org"},"inLanguage":["en","ar","de","tr"]},
-{"@type":"Service","name":"Fuel price reference and margin calculator","provider":{"@id":"https://tajone-iq.netlify.app/#org"},"areaServed":"IQ","serviceType":"Energy market information"}
+{"@type":"Organization","@id":"https://s63042854-dotcom.github.io/taj-one/#org","name":"TAJ ONE for General Trading and Energy","url":"https://s63042854-dotcom.github.io/taj-one/","address":{"@type":"PostalAddress","addressLocality":"Erbil","addressCountry":"IQ"},"knowsLanguage":["en","ar","de","tr"],"description":"Iraqi petroleum derivatives pricing, dollar and gold rates and trade margin tools."},
+{"@type":"WebSite","@id":"https://s63042854-dotcom.github.io/taj-one/#site","url":"https://s63042854-dotcom.github.io/taj-one/","name":"TAJ ONE — Energy Intelligence","publisher":{"@id":"https://s63042854-dotcom.github.io/taj-one/#org"},"inLanguage":["en","ar","de","tr"]},
+{"@type":"Service","name":"Fuel price reference and margin calculator","provider":{"@id":"https://s63042854-dotcom.github.io/taj-one/#org"},"areaServed":"IQ","serviceType":"Energy market information"}
 ]}
 </script>
 <style>
@@ -240,6 +240,16 @@
   .paybox p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.65}
   .payside{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
   .paynum{font-size:22px;font-weight:700;letter-spacing:.04em;color:#B08D3F;direction:ltr}
+  .paymore{border:1px solid var(--line);border-radius:14px;padding:0 18px;margin:0 0 22px;background:rgba(255,255,255,.02)}
+  .paymore summary{cursor:pointer;list-style:none;padding:14px 0;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .paymore summary::-webkit-details-marker{display:none}
+  .paymore summary::after{content:"+";float:inline-end;font-size:16px;color:#B08D3F}
+  .paymore[open] summary::after{content:"−"}
+  .paymore-body{padding:0 0 16px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+  .paymore-body p{margin:0 0 12px}
+  .paymore-row{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+  .paymore-row b{color:var(--ink,#e8e6e1);min-width:74px;font-weight:700}
+  .paymore-link{display:inline-block;margin-top:12px;color:#B08D3F;font-weight:700;text-decoration:none}
   /* tenders */
   .filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
   .filters button{
@@ -785,6 +795,16 @@
         </div>
       </div>
 
+      <details class="paymore rv">
+        <summary data-i18n="pay_more">Other payment options</summary>
+        <div class="paymore-body">
+          <p data-i18n="pay_more_sub">For subscribers outside Iraq. Account and wallet details are sent on WhatsApp after you confirm the plan, so nothing is published openly.</p>
+          <div class="paymore-row"><b>FIB</b><span data-i18n="pay_fib">Bank transfer to the company account. Details sent on request.</span></div>
+          <div class="paymore-row"><b>Binance</b><span data-i18n="pay_bin">USDT transfer. Wallet address sent on request. Always confirm it on WhatsApp before sending.</span></div>
+          <a class="paymore-link" href="https://wa.me/9647501700795?text=TAJ%20ONE%20payment%20options" target="_blank" rel="noopener" data-i18n="pay_more_cta">Ask for payment details</a>
+        </div>
+      </details>
+
       <div class="member" id="memberPanel">
         <div class="member-top">
           <h3 data-i18n="mem_area">Trader desk</h3>
@@ -990,6 +1010,7 @@
             <div class="fld"><label data-i18n="s_mail">Email</label><input id="sMail" placeholder="name@domain.com"></div>
             <div class="fld"><label data-i18n="s_fib">FIB account</label><input id="sFib" placeholder="IBAN"></div>
             <div class="fld"><label data-i18n="s_bin">Binance UID</label><input id="sBin"></div>
+            <div class="fld"><label data-i18n="s_key">Write key</label><input id="sKey" autocomplete="off" placeholder="tajone-..."></div>
             <div class="fld full"><label data-i18n="s_pass">Change desk password</label><input id="sPass" type="password" placeholder="••••••"></div>
           </div>
           <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
@@ -1169,6 +1190,8 @@
       act_sub:"Enter the code you received on WhatsApp. It opens the member desk until the end of its period, then closes automatically.",
       act_code:"Code", act_go:"Activate", act_bad:"That code is not valid.", act_expired:"That code has expired.",
       act_ok:"Activated. Welcome to the desk.",
+      act_notissued:"This code was not issued by the office.", act_net:"Could not reach the server. Check your connection and try again.",
+      dc_pending:"not saved", dc_issuefail:"Some codes were not saved to the cloud — regenerate them.",
       dt_codes:"Codes", dc_note:"Each code opens the member desk until the end of the period you choose. Send it by WhatsApp after the transfer is confirmed.",
       dc_period:"Period", dc_qty:"How many", dc_gen:"Generate codes", dc_copy:"Copy", dc_copied:"Copied.",
       dc_local:"Activation is verified in the buyer's browser. Full single-use enforcement needs a small database — that is the next phase.",
@@ -1206,6 +1229,10 @@
       pay_eyebrow:"Payment", pay_title:"Subscribe by Zain Cash",
       pay_sub:"Send the amount to the number below, put your name in the note, then send the receipt on WhatsApp. We issue your activation code the same day.",
       pay_cta:"Send the receipt on WhatsApp", mem_need:"Activation code required for this feature.", mem_soon:"Renew within",
+      pay_more:"Other payment options", pay_more_sub:"For subscribers outside Iraq. Account and wallet details are sent on WhatsApp after you confirm the plan, so nothing is published openly.",
+      pay_fib:"Bank transfer to the company account. Details sent on request.",
+      pay_bin:"USDT transfer. Wallet address sent on request. Always confirm it on WhatsApp before sending.",
+      pay_more_cta:"Ask for payment details",
       ab_eyebrow:"About", ab_title:"Built by a trading house, not a marketing agency",
       ab_p1:"TAJ ONE for General Trading and Energy is based in Erbil and works on petroleum derivatives, logistics and public procurement across Iraq.",
       ab_p2:"This platform exists because the market information available to traders is either wrong, out of date, or sold as a secret. We publish the reference prices openly and keep the paid product to what actually saves time: alerts and records.",
@@ -1222,7 +1249,7 @@
       a_title:"Title", a_cat:"Category", a_body:"Text", a_publish:"Publish",
       dp_note:"Update the reference schedule. The verification date is stored with the values.",
       dp_save:"Save prices", dp_reset:"Restore official",
-      s_wa:"WhatsApp", s_mail:"Email", s_fib:"FIB account", s_bin:"Binance UID", s_pass:"Change desk password",
+      s_wa:"WhatsApp", s_mail:"Email", s_fib:"FIB account", s_bin:"Binance UID", s_key:"Write key", s_pass:"Change desk password",
       s_save:"Save settings", s_export:"Export data", s_import:"Import data",
       s_cloud:"Cloud sync (Firebase)", s_api:"Web API key", s_pid:"Project ID",
       s_connect:"Connect", s_push:"Publish now", s_on:"Connected — visitors see your edits.", s_off:"Not connected — edits stay on this device only.",
@@ -1304,6 +1331,8 @@
       act_sub:"أدخل الكود الذي وصلك على واتساب. يفتح مكتب التاجر حتى نهاية فترته ثم يُغلق تلقائياً.",
       act_code:"الكود", act_go:"تفعيل", act_bad:"هذا الكود غير صالح.", act_expired:"هذا الكود منتهي.",
       act_ok:"تم التفعيل. أهلاً بك في المكتب.",
+      act_notissued:"هذا الكود غير صادر من المكتب.", act_net:"تعذّر الوصول إلى السيرفر. تحقّق من الاتصال وأعد المحاولة.",
+      dc_pending:"لم يُحفظ", dc_issuefail:"بعض الأكواد لم تُحفظ في السحابة — أعد توليدها.",
       dt_codes:"الأكواد", dc_note:"كل كود يفتح مكتب التاجر حتى نهاية الفترة التي تختارها. أرسله بواتساب بعد تأكيد التحويل.",
       dc_period:"الفترة", dc_qty:"العدد", dc_gen:"ولّد الأكواد", dc_copy:"نسخ", dc_copied:"تم النسخ.",
       dc_local:"التفعيل يُتحقق منه في متصفح المشتري. منع الاستخدام المتكرر يحتاج قاعدة بيانات صغيرة — وهي المرحلة القادمة.",
@@ -1341,6 +1370,10 @@
       pay_eyebrow:"الدفع", pay_title:"الاشتراك عبر زين كاش",
       pay_sub:"حوّل المبلغ إلى الرقم أدناه، واكتب اسمك في خانة الملاحظة، ثم أرسل صورة الإشعار على واتساب. نصدر كود التفعيل في نفس اليوم.",
       pay_cta:"أرسل الإشعار على واتساب", mem_need:"هذه الميزة تحتاج كود تفعيل.", mem_soon:"يجب التجديد خلال",
+      pay_more:"خيارات دفع أخرى", pay_more_sub:"للمشتركين خارج العراق. بيانات الحساب والمحفظة تُرسل على واتساب بعد تأكيد الخطة، فلا يُنشر شيء علناً.",
+      pay_fib:"حوالة بنكية إلى حساب الشركة. البيانات تُرسل عند الطلب.",
+      pay_bin:"تحويل USDT. عنوان المحفظة يُرسل عند الطلب. تأكّده على واتساب قبل الإرسال دائماً.",
+      pay_more_cta:"اطلب بيانات الدفع",
       ab_eyebrow:"عن الشركة", ab_title:"بُنيت بيد بيت تجاري، لا وكالة تسويق",
       ab_p1:"تاج ون للتجارة العامة والطاقة، مقرها أربيل، وتعمل في مشتقات النفط واللوجستيك والمشتريات العامة في العراق.",
       ab_p2:"هذه المنصة موجودة لأن معلومات السوق المتاحة للتجار إما خاطئة أو قديمة أو تُباع كسر. ننشر الأسعار المرجعية علناً ونُبقي المنتج المدفوع على ما يوفّر الوقت فعلاً: التنبيهات والسجلات.",
@@ -1357,7 +1390,7 @@
       a_title:"العنوان", a_cat:"التصنيف", a_body:"النص", a_publish:"انشر",
       dp_note:"حدّث الجدول المرجعي. تاريخ التحقق يُحفظ مع القيم.",
       dp_save:"حفظ الأسعار", dp_reset:"استعادة الرسمي",
-      s_wa:"واتساب", s_mail:"البريد", s_fib:"حساب FIB", s_bin:"Binance UID", s_pass:"تغيير كلمة سر المكتب",
+      s_wa:"واتساب", s_mail:"البريد", s_fib:"حساب FIB", s_bin:"Binance UID", s_key:"مفتاح الكتابة", s_pass:"تغيير كلمة سر المكتب",
       s_save:"حفظ الإعدادات", s_export:"تصدير البيانات", s_import:"استيراد البيانات",
       s_cloud:"المزامنة السحابية (Firebase)", s_api:"مفتاح الويب (API key)", s_pid:"معرف المشروع (Project ID)",
       s_connect:"ربط", s_push:"انشر الآن", s_on:"مربوط — الزائر يرى تعديلاتك.", s_off:"غير مربوط — التعديلات تبقى على هذا الجهاز فقط.",
@@ -1566,14 +1599,15 @@
   }
   /* ---------- cloud sync (Firestore REST, optional) ---------- */
   var FB={ apiKey:"AIzaSyAt3VZ7MQ_ZLggLrch5YiUyPUc4GWiaGgk", projectId:"iraq-stock-b3561-6e5df", enabled:true };
-  var SYNC_ROOTS=["prices","settings","articles","tenders","globalPrices","codes"];
+  var SYNC_ROOTS=["prices","settings","articles","tenders","globalPrices"];
   function fbBase(){ return "https://firestore.googleapis.com/v1/projects/"+FB.projectId+"/databases/(default)/documents/"; }
   function fbDoc(path){ return fbBase()+path+"?key="+FB.apiKey; }
   function fbRead(path){
     return fetch(fbDoc(path),{cache:"no-store"}).then(function(r){ return r.ok?r.json():null; }).catch(function(){ return null; });
   }
   function fbWrite(path,obj){
-    var body={fields:{json:{stringValue:JSON.stringify(obj)}}};
+    var body={fields:{json:{stringValue:JSON.stringify(obj)}} };
+    if(db.wkey) body.fields.sig={stringValue:db.wkey};
     return fetch(fbDoc(path),{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
       .then(function(r){ return r.ok; }).catch(function(){ return false; });
   }
@@ -2028,12 +2062,12 @@
   }
   function makeCode(period){
     var body="";
-    for(var i=0;i<3;i++) body+=ALPHA[Math.floor(Math.random()*ALPHA.length)];
+    for(var i=0;i<5;i++) body+=ALPHA[Math.floor(Math.random()*ALPHA.length)];
     var key=String(period).replace("-","")+body;
     return "TAJ-"+period+"-"+body+checksum(key);
   }
   function validCode(code){
-    var m=/^TAJ-(\d{4})-(\d{2})-([A-Z0-9]{3})([A-Z0-9])$/.exec(String(code).trim().toUpperCase());
+    var m=/^TAJ-(\d{4})-(\d{2})-([A-Z0-9]{3,6})([A-Z0-9])$/.exec(String(code).trim().toUpperCase());
     if(!m) return null;
     var period=m[1]+"-"+m[2];
     if(periodEnd(period) < Date.now()) return {period:period, expired:true};
@@ -2079,7 +2113,8 @@
   function renderCodes(){
     var list=db.codes||[];
     $("#adminCodes").innerHTML = list.length ? list.map(function(c){
-      return '<div class="listrow code-line"><span>'+esc(c.code)+'</span>'+
+      var st=c.issued===false ? '<span style="color:var(--warn);font-size:11px">'+esc(t("dc_pending"))+'</span>' : '';
+      return '<div class="listrow code-line"><span>'+esc(c.code)+' '+st+'</span>'+
         '<span style="display:flex;gap:8px;align-items:center">'+
         '<span class="muted" style="font-size:11px">'+esc(c.period)+'</span>'+
         '<button class="del" data-copy-code="'+esc(c.code)+'">'+esc(t("dc_copy"))+'</button>'+
@@ -2087,31 +2122,60 @@
     }).join("") : '<p class="muted" style="font-size:12.5px">—</p>';
   }
 
+  /* the office issues a code, the buyer only proves it exists and is unused */
+  function fbCodeUrl(code,mask){
+    var u=fbBase()+"codes/"+encodeURIComponent(code)+"?key="+FB.apiKey;
+    if(mask) for(var i=0;i<mask.length;i++) u+="&updateMask.fieldPaths="+encodeURIComponent(mask[i]);
+    return u;
+  }
+  function fbIssueCode(code,period){
+    var fields={
+      period:{stringValue:String(period)},
+      issuedAt:{stringValue:todayBaghdad()},
+      used:{booleanValue:false}
+    };
+    if(db.wkey) fields.sig={stringValue:db.wkey};
+    return fetch(fbCodeUrl(code),{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({fields:fields})})
+      .then(function(r){ return r.ok; }).catch(function(){ return false; });
+  }
+  function fbMarkUsed(code){
+    var fields={
+      used:{booleanValue:true},
+      activatedAt:{stringValue:new Date().toISOString()},
+      device:{stringValue:(navigator.userAgent||"").slice(0,80)}
+    };
+    return fetch(fbCodeUrl(code,["used","activatedAt","device"]),{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({fields:fields})})
+      .then(function(r){ return r.ok; }).catch(function(){ return false; });
+  }
+  function fbGetCode(code){
+    return fetch(fbCodeUrl(code),{cache:"no-store"}).then(function(r){
+      if(r.status===404) return {missing:true};
+      if(!r.ok) return {error:true};
+      return r.json().then(function(d){ return {doc:d}; },function(){ return {error:true}; });
+    }).catch(function(){ return {error:true}; });
+  }
+
   function activateCode(){
-    var v=validCode($("#actCode").value);
-    var msg=$("#actMsg");
+    var raw=$("#actCode").value, msg=$("#actMsg");
+    var v=validCode(raw);
     if(!v){ msg.style.color="var(--bad)"; msg.textContent=t("act_bad"); return; }
     if(v.expired){ msg.style.color="var(--warn)"; msg.textContent=t("act_expired"); return; }
-    if(cloudEnabled()){
-      var c=$("#actCode").value.trim().toUpperCase();
-      msg.style.color="var(--muted)"; msg.textContent=t("act_check");
-      fbRead("codes/"+encodeURIComponent(c)).then(function(d){
-        if(d && d.fields && d.fields.json){
-          msg.style.color="var(--bad)"; msg.textContent=t("act_used"); return;
-        }
-        finishActivate(v);
-      }).catch(function(){ finishActivate(v); });
-      return;
-    }
-    finishActivate(v);
+    var c=raw.trim().toUpperCase();
+    if(!cloudEnabled()){ msg.style.color="var(--warn)"; msg.textContent=t("act_net"); return; }
+    msg.style.color="var(--muted)"; msg.textContent=t("act_check");
+    fbGetCode(c).then(function(r){
+      if(r.missing){ msg.style.color="var(--bad)"; msg.textContent=t("act_notissued"); return; }
+      if(r.error){ msg.style.color="var(--warn)"; msg.textContent=t("act_net"); return; }
+      var f=(r.doc&&r.doc.fields)||{};
+      if(f.used&&f.used.booleanValue===true){ msg.style.color="var(--bad)"; msg.textContent=t("act_used"); return; }
+      finishActivate(v,c);
+    });
   }
-  function finishActivate(v){
+  function finishActivate(v,c){
     var msg=$("#actMsg");
-    db.license={period:v.period, at:new Date().toISOString(), code:$("#actCode").value.trim().toUpperCase()};
+    db.license={period:v.period, at:new Date().toISOString(), code:c};
     save(); renderMember();
-    if(cloudEnabled()){
-      fbWrite("codes/"+encodeURIComponent(db.license.code),{at:db.license.at,period:v.period,device:(navigator.userAgent||"").slice(0,80)});
-    }
+    fbMarkUsed(c);
     msg.style.color="var(--ok)"; msg.textContent=t("act_ok");
     setTimeout(function(){ $("#actModal").classList.remove("open"); document.body.style.overflow=""; },900);
   }
@@ -2159,7 +2223,7 @@
 
     var s=db.settings||{};
     $("#sWa").value=s.wa||""; $("#sMail").value=s.mail||"";
-    $("#sFib").value=s.fib||""; $("#sBin").value=s.bin||"";
+    $("#sFib").value=s.fib||""; $("#sBin").value=s.bin||""; if($("#sKey")) $("#sKey").value=db.wkey||"";
   }
 
   function toast(text){
@@ -2251,6 +2315,7 @@
 
     $("#saveSettings").addEventListener("click",function(){
       db.settings={ wa:$("#sWa").value.trim(), mail:$("#sMail").value.trim(), fib:$("#sFib").value.trim(), bin:$("#sBin").value.trim() };
+      if($("#sKey")) db.wkey=$("#sKey").value.trim();
       if($("#sPass").value) db.pass=hash($("#sPass").value);
       save(); renderContact(); $("#sPass").value=""; toast(t("saved"));
     });
@@ -2405,8 +2470,22 @@
     $("#genCodes").addEventListener("click",function(){
       var period=$("#codePeriod").value||nowM;
       var qty=Math.max(1,Math.min(50,+$("#codeQty").value||1));
-      for(var i=0;i<qty;i++) db.codes.push({code:makeCode(period), period:period, at:todayBaghdad()});
-      save(); renderCodes(); toast(t("added"));
+      var made=[];
+      for(var i=0;i<qty;i++){
+        var c=makeCode(period);
+        made.push(c);
+        db.codes.push({code:c, period:period, at:todayBaghdad(), issued:false});
+      }
+      renderCodes(); saveLocal(); toast(t("added"));
+      if(!cloudEnabled()) return;
+      var left=made.length, bad=0;
+      made.forEach(function(c){
+        fbIssueCode(c,period).then(function(ok){
+          if(ok){ db.codes.forEach(function(x){ if(x.code===c) x.issued=true; }); }
+          else bad++;
+          if(--left===0){ saveLocal(); renderCodes(); if(bad) toast(t("dc_issuefail")); }
+        });
+      });
     });
 
     document.addEventListener("click",function(e){
