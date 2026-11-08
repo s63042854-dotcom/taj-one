@@ -502,6 +502,7 @@
     #langs button,.seg button{padding-left:12px;padding-right:12px}
   }
 </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7915631449697284" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -916,26 +917,31 @@
   <p style="text-align:center;font-size:11px;letter-spacing:.18em;color:#8D8878;margin:6px 0 0">ADVERTISEMENT</p>
 </div>
 <script>
-window.TA_ADS = { enabled:false, client:"", slot:"" };
+window.TA_ADS = { enabled:false, client:"ca-pub-7915631449697284", slot:"" };
 (function(){
   var cfg = window.TA_ADS;
-  if(!cfg.enabled || !cfg.client || !cfg.slot) return;
+  if(!cfg.enabled || !cfg.slot) return;
   var consent=null; try{ consent=localStorage.getItem("ta_consent_v1"); }catch(e){}
   if(consent!=="all") return;
-  var s=document.createElement("script");
-  s.async=true; s.crossOrigin="anonymous";
-  s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+cfg.client;
-  document.head.appendChild(s);
-  var ins=document.createElement("ins");
-  ins.className="adsbygoogle";
-  ins.style.display="block";
-  ins.setAttribute("data-ad-client",cfg.client);
-  ins.setAttribute("data-ad-slot",cfg.slot);
-  ins.setAttribute("data-ad-format","auto");
-  ins.setAttribute("data-full-width-responsive","true");
-  var host=document.getElementById("taAdSlot");
-  host.innerHTML=""; host.appendChild(ins);
-  s.onload=function(){ try{ (adsbygoogle=window.adsbygoogle||[]).push({}); }catch(e){} };
+  function render(){
+    var ins=document.createElement("ins");
+    ins.className="adsbygoogle";
+    ins.style.display="block";
+    ins.setAttribute("data-ad-client",cfg.client);
+    ins.setAttribute("data-ad-slot",cfg.slot);
+    ins.setAttribute("data-ad-format","auto");
+    ins.setAttribute("data-full-width-responsive","true");
+    var host=document.getElementById("taAdSlot");
+    if(!host) return;
+    host.innerHTML=""; host.appendChild(ins);
+    try{ (window.adsbygoogle=window.adsbygoogle||[]).push({}); }catch(e){}
+  }
+  var s=document.querySelector('script[src*="adsbygoogle.js"]');
+  if(s){ render(); return; }
+  var n=document.createElement("script");
+  n.async=true; n.crossOrigin="anonymous";
+  n.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+cfg.client;
+  n.onload=render; document.head.appendChild(n);
 })();
 </script>
 </main>
