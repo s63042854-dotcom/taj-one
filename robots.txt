@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /codes
+Sitemap: https://s63042854-dotcom.github.io/taj-one/sitemap.xml
