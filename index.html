@@ -1580,7 +1580,7 @@
       {id:"t3",title:"UNDP-JOR-00745 — Aqaba portfolio",org:"UNDP",close:"2026-11-16",link:"https://www.ungm.org/Public/Notice"}
     ],
     settings:{ wa:"", mail:"salahcyber2026@gmail.com", fib:"", bin:"" },
-    fb:{key:"AIzaSyAt3VZ7MQ_ZLggLrch5YiUyPUc4GWiaGgk", pid:"iraq-stock-b3561-6e5df"},
+    fb:{key:"AIzaSyDsMizmao4lqzaP_x8DTpzy8nLduWCOnvc", pid:"taj-one-23c1c"},
     license:null,
     codes:[]
   };
@@ -1598,7 +1598,7 @@
     }catch(e){ return JSON.parse(JSON.stringify(DEFAULTS)); }
   }
   /* ---------- cloud sync (Firestore REST, optional) ---------- */
-  var FB={ apiKey:"AIzaSyAt3VZ7MQ_ZLggLrch5YiUyPUc4GWiaGgk", projectId:"iraq-stock-b3561-6e5df", enabled:true };
+  var FB={ apiKey:"AIzaSyDsMizmao4lqzaP_x8DTpzy8nLduWCOnvc", projectId:"taj-one-23c1c", enabled:true };
   var SYNC_ROOTS=["prices","settings","articles","tenders","globalPrices"];
   function fbBase(){ return "https://firestore.googleapis.com/v1/projects/"+FB.projectId+"/databases/(default)/documents/"; }
   function fbDoc(path){ return fbBase()+path+"?key="+FB.apiKey; }
