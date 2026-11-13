@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // المكتب = حساب Firebase Auth بالبريد المحدد فقط. لا مفتاح داخل أي وثيقة.
+    function office() {
+      return request.auth != null
+          && (request.auth.token.email == "office.tajone.2026@gmail.com"
+           || request.auth.token.email == "salahfighter1one@gmail.com");
+    }
+
+    match /taj/{doc} {
+      allow read: if true;
+      allow create, update, delete: if office();
+    }
+
+    // الأسعار التلقائية: كتابة حقل json فقط في وثيقة taj/auto، بلا أي حقل آخر
+    match /taj/auto {
+      allow create, update: if request.resource.data.keys().hasOnly(["json"])
+                        && request.resource.data.json is string
+                        && request.resource.data.json.size() < 3000;
+      allow delete: if office();
+    }
+
+    match /codes/{code} {
+      allow get: if true;
+      allow list: if false;
+      allow create, update, delete: if office();
+
+      // التفعيل من الزائر: ثلاثة حقول فقط، مرة واحدة، من false إلى true
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                          .hasOnly(["used", "activatedAt", "device"])
+                    && resource.data.used == false
+                    && request.resource.data.used == true;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
